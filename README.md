@@ -95,19 +95,29 @@ To begin working with the Walmart Retail Sales Prediction project, follow these 
      git clone https://github.com/Prakash-Kani/Retail-Sales-Prediction.git
      ```
 
-2. **Install the Required Packages:**
+
+2. **Download Model Pickle**
+
+   - To use the trained model, download the pickle file from the following link:
+
+   - [Download Model Pickle](https://drive.google.com/file/d/1bsMJY-Opg67-RL9YUxTc50TGPisDzvvK/view?usp=sharing)
+
+   - **Note:** After downloading the pickle file, ensure to store it in the same folder as your project files for proper functionality.
+
+
+3. **Install the Required Packages:**
    - Make sure you have all the necessary tools installed. Do this by typing the following command:
      ```
-     pip install -r requirements.text
+     pip install -r requirements.txt
      ```
 
-3. **Run the Streamlit App:**
+4. **Run the Streamlit App:**
    - Fire up the Streamlit application using this command:
      ```
      streamlit run app.py
      ```
 
-4. **Access the App in Your Browser:**
+5. **Access the App in Your Browser:**
    - Open your internet browser and go to http://localhost:8501. You should see the app there.
 
 Now you're all set! You've got the project on your machine, installed what you need, and can access the app in your browser. Happy exploring!
