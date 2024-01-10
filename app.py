@@ -8,24 +8,23 @@ warnings.filterwarnings('ignore')
 
 
 
-def regression_model(data):
-
-    reg_model12 = joblib.load('random_forest_model.joblib.gz')
-
-    return reg_model12.predict(data)
-
-# def regression_model(data):
-#     file = open('Random_Forest_Model.pkl', 'rb')
-
-#     reg_model = pickle.load(file)
-
-#     return reg_model.predict(data)[0]
-
 st.set_page_config(page_title = "Walmart Retail Sales Prediction",
                    page_icon = "",
                    layout = "wide",
                    initial_sidebar_state = "expanded",
                    menu_items = None)
+
+@st.cache_resource()
+
+def regression_model():
+
+    reg_model12 = joblib.load('random_forest_model.joblib.gz')
+
+    return reg_model12
+
+reg_model = regression_model()
+
+
 
 st.title(":red[Walmart Retail] :blue[Sales] :orange[Prediction]")
 
@@ -108,7 +107,10 @@ test_data = np.array([[store, Type[type_],  department, Size, temp, fuel, markdo
 
 st.markdown('Click below button to predict the **Flat Resale Price**')
 pred = st.button('Predict Weekly Sales')
+
+
 if pred:
-    
-    st.markdown(f"### :bule[Weekly Sales Price is] :green[$ {regression_model(test_data)[0]}]")
+    # Perform prediction and display result
+    predicted_sales = reg_model.predict(test_data)[0]
+    st.markdown(f"### :blue[Weekly Sales Price is] :green[$ {predicted_sales}]")
 
